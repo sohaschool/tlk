@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10131c">
+  <meta name="description" content="schooltlk.io - 자유로운 익명 실시간 채팅">
+  <title>schooltlk.io</title>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <main id="app">
+
+    <!-- HOME -->
+    <section id="home-screen" class="screen">
+      <div class="home-card">
+
+        <div class="logo">schooltlk<span>.io</span></div>
+
+        <p class="subtitle">
+          누구나 자유롭게 이야기할 수 있는 공간
+        </p>
+
+        <form id="join-form">
+
+          <label for="nickname">닉네임</label>
+          <input
+            id="nickname"
+            type="text"
+            maxlength="20"
+            placeholder="닉네임을 입력하세요"
+            autocomplete="nickname"
+            required
+          >
+
+          <label for="channel">채널</label>
+
+          <div class="channel-input">
+            <span>#</span>
+            <input
+              id="channel"
+              type="text"
+              maxlength="40"
+              placeholder="general"
+              required
+            >
+          </div>
+
+          <button type="submit" class="primary-button">
+            채널 입장하기
+          </button>
+
+        </form>
+
+        <p class="hint">
+          회원가입 없이 바로 이용할 수 있습니다.
+        </p>
+
+        <p id="home-error" class="error"></p>
+
+      </div>
+    </section>
+
+
+    <!-- CHAT -->
+    <section id="chat-screen" class="screen hidden">
+
+      <header class="topbar">
+
+        <div class="logo">
+          schooltlk<span>.io</span>
+        </div>
+
+        <div class="connection">
+          <i id="connection-dot"></i>
+          <span id="connection-text">연결 중</span>
+        </div>
+
+      </header>
+
+
+      <div class="chat-layout">
+
+        <section class="chat-main">
+
+          <div class="room-header">
+
+            <div>
+              <h2 id="room-title">#general</h2>
+              <span id="room-count">0명 접속 중</span>
+            </div>
+
+            <button id="share-button" class="secondary-button">
+              링크 공유
+            </button>
+
+          </div>
+
+
+          <div id="messages" class="messages">
+            <div class="empty-message">
+              대화를 시작해 보세요!
+            </div>
+          </div>
+
+
+          <form id="message-form" class="message-form">
+
+            <input
+              id="message-input"
+              type="text"
+              maxlength="1000"
+              placeholder="메시지를 입력하세요..."
+              autocomplete="off"
+            >
+
+            <button type="submit">
+              전송
+            </button>
+
+          </form>
+
+        </section>
+
+
+        <aside class="sidebar">
+
+          <h3>
+            접속자
+            <span id="user-count">0</span>
+          </h3>
+
+          <div id="user-list"></div>
+
+          <button id="leave-button" class="leave-button">
+            채널 나가기
+          </button>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+  <script src="./app.js"></script>
+
+</body>
+</html>
